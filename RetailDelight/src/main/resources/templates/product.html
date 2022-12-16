@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Product</title>
+      <link rel="icon" type="image" href="/images/mfavicon.ico">
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+       <link rel="stylesheet" href="/css/product.css" />
+   </head>
+   <body>
+   
+      <th:block th:include="/head"></th:block>
+     <nav style="color: black;">
+<div class="header-bar">
+<th:block sec:authorize="isAuthenticated()">
+<div align="left"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello
+<button class="btn btn-outline-light">
+<a th:href="@{/admin/accountInfo}" style="color: black;"
+                            th:utext=${#request.userPrincipal.name}> <input type="button"
+                            name="b1" class="btn btn-outline-primary" /></a>
+</button>
+
+
+ 
+
+                   
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;
+ 
+
+
+<a th:href="@{/admin/logout}" class="logout"><input
+                        type="button" value="logout" name="logout"
+                        class="btn btn-outline-danger" /></a>
+</div>
+<br>
+<br>
+</th:block>
+     
+      
+      <div class="page-title" style="margin-top: 180px;">Product Details</div>
+      <div th:if="${errorMessage!= null}" class="error-message" th:utext="${errorMessage}">
+      </div>
+      
+      <form  th:object="${productForm}" th:action="@{/admin/product}"
+              method="POST" enctype="multipart/form-data" id="form-product">
+         <table style="text-align:left;" class="product-block">
+            <tr>
+               <td id="code">Code *</td>
+               <td style="color:red;">
+                  <input th:field="*{newProduct}" type="hidden" />
+                  <input th:if="${productForm.newProduct}" type="text"
+                     th:field="*{code}" placeholder="Enter Product Code" class="form-control"/>  
+                  <th:block th:if="${!productForm.newProduct}">   
+                       <span th:utext="${productForm.code}"></span>   
+                       <input type="hidden" th:field="*{code}" />                                       
+                  </th:block>   
+               </td>
+               <td>
+                  <span class="error-message" th:if="${#fields.hasErrors('code')}" th:errors="*{code}">..</span>
+               </td>   
+            </tr>
+            <tr>
+               <td id="name">Name *</td>
+               <td><input th:field="*{name}" placeholder="Enter Product Name" class="form-control" /></td>
+               <td>
+                  <span class="error-message" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td id="price">Price *</td>
+               <td><input th:field="*{price}" class="form-control" /></td>
+               <td>
+                  <span class="error-message" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td id="image">Image</td>
+               <td>
+                  <img th:src="@{|/productImage?code=${productForm.code}|}" width="100"/>
+               </td>
+               <td> </td>
+            </tr>
+            <tr>
+               <td id="upload">Upload Image</td>
+               <td><input type="file" th:field="*{fileData}" /></td>
+               <td> </td>
+            </tr>
+            <tr>
+               <td>&nbsp;</td>
+               <td>
+                  <button class="btn btn-lg btn-primary btn-block" input type="submit" value="Submit" >Submit</button>
+                  <button class="btn btn-lg btn-warning btn-block" input type="reset" value="Reset" >Reset</button>
+               </td>
+            </tr>
+         </table>
+      </form>
+      
+      <th:block th:include="/_footer"></th:block>
+      
+   </body>
+</html>

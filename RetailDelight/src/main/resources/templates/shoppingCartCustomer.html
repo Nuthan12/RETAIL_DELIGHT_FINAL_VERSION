@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+   <head>
+      <meta charset="UTF-8">
+      <title>Enter Customer Information</title>
+      <link rel="icon" type="image" href="/images/mfavicon.ico">
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+       <link rel="stylesheet" type="text/css" th:href="@{/css/accountInfo.css}">
+      
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw=="
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="/css/style.css" />
+     
+   </head>
+   <body>
+     <th:block th:include="/header2"></th:block>
+     <body>
+     <br>
+     <div class="letsalign">
+      <button class="button-87 menu_btns" role="button"><a  th:href="@{/}">Home</a></button>
+      </div>
+      
+      
+      <div class="page-title">Enter Your Information</div>
+
+      <form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}" id="form-signup">
+         
+         <table class="login-block">
+            <tr>
+               <td id="username"></td>
+               <td><input th:field="*{name}" placeholder="Enter Name" class="form-control" pattern="[a-zA-Z ]+" title="Enter Alphabets only" required /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td id="email"></td>
+               <td><input th:field="*{email}" placeholder="Enter Email" class="form-control" pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'  title="Invalid Email Address!" required/></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td id="phone">Phone</td>
+               <td><input th:field="*{phone}" placeholder="Enter Phone" class="form-control"  pattern="^\d{10}$"  title="Invalid Phone Number-Enter 10 digits!" required/></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td id="address"></td>
+               <td><input th:field="*{address}" placeholder="Enter Address" class="form-control"/></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>&nbsp;</td>
+               <td><button class="btn btn-lg btn-primary btn-block" input type="submit" value="Submit" >Submit</button> 
+               		<button class="btn btn-lg btn-warning btn-block" input type="reset"  value="Reset">Reset</button>
+               	</td>
+            </tr>
+         </table>
+         
+      </form>
+      
+      
+   </body>
+</html>

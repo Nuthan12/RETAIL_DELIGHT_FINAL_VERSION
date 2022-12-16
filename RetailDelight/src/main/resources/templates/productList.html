@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+   <head>
+      <meta charset="UTF-8">
+      <title>Product List</title>
+      <link rel="icon" type="image" href="/images/mfavicon.ico">
+      <link rel="stylesheet" href="/css/style1.css" />
+      <link rel="stylesheet" href="/css/accountInfo.css" />
+      <style type="text/css">
+      body {
+         font-family: 	
+"Rockwell";
+     	
+	Font-weight: bold;
+	Background-image:
+		url(https://img.freepik.com/free-photo/minimal-shopping-cart-shopping-concept-orange-background-3d-rendering_56104-1396.jpg?w=2000);      
+    text-align:center;
+     height: 100%;
+     background-repeat: no-repeat;
+      background-size: cover; 
+            width: 100%;
+    
+   
+}</style>
+   </head>
+   <body>
+      <th:block th:include="/header2"></th:block>
+      <th:block th:include="/menu1"></th:block>
+      
+      
+      <!-- <div class="page-title">Product List</div> -->
+      <h1 align="center">Welcome</h1>
+      
+      <!-- <div class="product-preview-container" th:each="prodInfo : ${paginationProducts.list}"> -->
+      <div class="product-preview-container" th:each="prodInfo : ${paginationProducts.list}">
+         <ul>
+            <li><img class="product-image"
+               th:src="@{|/productImage?code=${prodInfo.code}|}" /></li>
+            <li>Code: <span th:utext="${prodInfo.code}"></span></li>
+            <li>Name: <span th:utext="${prodInfo.name}"></span></li>
+            <li>Price: <span th:utext="${#numbers.formatDecimal(prodInfo.price,1,2,'POINT')}"></span></li>
+            <li>
+              <button class="button-47" role="button"><a th:href="@{|/buyProduct?code=${prodInfo.code}|}">Buy Now</a></button> 
+            </li>
+            <!-- For Manager edit Product -->
+            <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
+               <li>
+                 <a style="color:red;"
+                    th:href="@{|/admin/product?code=${prodInfo.code}|}">Edit Product</a>
+               </li>
+            </th:block>
+         </ul>
+      </div>
+      
+      <br/>
+      
+      <th:block th:include="/_footer"></th:block>
+      
+   </body>
+</html>

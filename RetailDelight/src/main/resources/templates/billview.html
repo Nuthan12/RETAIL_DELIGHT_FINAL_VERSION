@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Bill Details</title>
+
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+<link rel="icon" type="image" href="/images/mfavicon.ico">
+<link rel="stylesheet" type="text/css" th:href="@{/css/accountInfo.css}">
+
+
+<!-- CSS only -->
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+
+</head>
+
+<style>
+body{
+Background-image:
+		url(https://img.freepik.com/free-photo/minimal-shopping-cart-shopping-concept-orange-background-3d-rendering_56104-1396.jpg?w=2000);
+		  height: 100%;
+     background-repeat: no-repeat;
+      background-size: cover; 
+            width: 100%;
+}
+.downbtn {
+	padding-top: -39%;
+}
+
+/* CSS */
+.button-33 {
+	background-color: #c2fbd7;
+	border-radius: 100px;
+	box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+		rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px,
+		rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px,
+		rgba(44, 187, 99, .15) 0 16px 32px;
+	color: green;
+	cursor: pointer;
+	display: inline-block;
+	font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
+		sans-serif;
+	padding: 7px 20px;
+	text-align: center;
+	text-decoration: none;
+	transition: all 250ms;
+	border: 0;
+	font-size: 13px;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+.button-33:hover {
+	box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset,
+		rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px,
+		rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px,
+		rgba(44, 187, 99, .25) 0 16px 32px;
+	transform: scale(1.05) rotate(-1deg);
+}
+
+.title_page {
+	font-size: 40px;
+	text-align: center;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.cust_infor {
+	padding-left: 20%;
+}
+
+#table {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+}
+
+ul#horizontal-list li {
+	display: inline;
+}
+</style>
+
+
+
+
+
+
+	<!-- <div class="title_page" style="text-align: center;">Bill Info</div> -->
+
+	 <th:block th:include="/header3"></th:block>
+
+	<!-- <h1 class="title_page">Retail Delight</h1> -->
+	
+<body><br>
+<div class="letsalign">
+  <button class="button-87 menu_btns" role="button"><a  th:href="@{/}">Home</a></button>
+  </div>
+  <br>
+	<h1 class="title_page">Bill Info</h1>
+
+
+
+
+
+
+
+	<div class="customer-info-container">
+
+		<!-- <img alt="logo" src="/images/logo6.png" height="150" class="img_logo"> -->
+
+		<h3 style="font-size: 25px;">Customer Information:</h3>
+
+		<ul style="font-size: 15px;" id="horizontal-list">
+
+			<li>Name: <span th:utext="${orderInfo.customerName}"></span></li>
+			<br>
+
+			<li>Email: <span th:utext="${orderInfo.customerEmail}"></span></li>
+			<br>
+
+			<li>Phone: <span th:utext="${orderInfo.customerPhone}"></span></li>
+			<br>
+
+			<li>Address: <span th:utext="${orderInfo.customerAddress}"></span></li>
+			<br>
+
+		</ul>
+
+		<h3 style="font-size: 25px;">Order Summary:</h3>
+
+		<ul>
+
+			<b><li style="font-size: 15px" >Total:<span class="total"
+				th:utext="${#numbers.formatDecimal(orderInfo.amount,1,2,'POINT')}"> </b>
+
+			</span>
+
+			</li>
+
+		</ul>
+
+	</div>
+
+	<br />
+
+	<table id="table" border="1" style="width: 100%"
+		class="table table-success table-striped">
+		<tr hidden>
+			<th>Retail Delight</th>
+
+
+		</tr>
+		<tr>
+
+			<th>Product Code</th>
+
+			<th>Product Name</th>
+
+			<th>Quantity</th>
+
+			<th>Price</th>
+
+			<th>Amount</th>
+
+		</tr>
+
+		<tr th:each="orderDetailInfo : ${orderInfo.details}">
+
+			<td th:utext="${orderDetailInfo.productCode}"></td>
+
+			<td th:utext="${orderDetailInfo.productName}"></td>
+
+			<td th:utext="${orderDetailInfo.quanity}"></td>
+
+			<td
+				th:utext="${#numbers.formatDecimal(orderDetailInfo.price,1,2,'POINT')}"></td>
+
+			<td
+				th:utext="${#numbers.formatDecimal(orderDetailInfo.amount,1,2,'POINT')}"></td>
+
+		</tr>
+
+	</table>
+
+
+
+	<br>
+
+	<!-- <button id="download-button" class="button-33">Download Bill</button> -->
+
+	<button id="download-button" class="button-33 downbtn" role="button">Download
+		Bill</button>
+
+
+
+	<!-- To convert the bill of the order in csv from  -->
+
+	<script type="text/javascript">
+		function downloadCSVFile(csv, filename) {
+
+			var csv_file, download_link;
+
+			csv_file = new Blob([ csv ], {
+
+				type : "text/csv"
+
+			});
+
+			download_link = document.createElement("a");
+
+			download_link.download = filename;
+
+			download_link.href = window.URL.createObjectURL(csv_file);
+
+			download_link.style.display = "none";
+
+			document.body.appendChild(download_link);
+
+			download_link.click();
+
+		}
+
+		document.getElementById("download-button").addEventListener("click",
+
+		function() {
+
+			var html = document.querySelector("table").outerHTML;
+
+			htmlToCSV(html, "Retail Delight bill.csv");
+
+		});
+
+		function htmlToCSV(html, filename) {
+
+			var data = [];
+
+			var rows = document.querySelectorAll("table tr");
+
+			for (var i = 0; i < rows.length; i++) {
+
+				var row = [], cols = rows[i].querySelectorAll("td, th");
+
+				for (var j = 0; j < cols.length; j++) {
+
+					row.push(cols[j].innerText);
+
+				}
+
+				data.push(row.join(","));
+
+			}
+
+			downloadCSVFile(data.join("\n"), filename);
+
+		}
+	</script>
+
+
+
+	<th:block th:include="/_footer"></th:block>
+
+
+
+</body>
+
+</html>

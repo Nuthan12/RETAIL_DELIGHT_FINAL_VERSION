@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+     
+      <title>Retail Delight</title>
+      <link rel="icon" type="image" href="/images/mfavicon.ico">
+      <link rel="stylesheet" href="/css/style.css" />
+      <link rel="stylesheet" href="/css/index.css" />
+          <link rel="stylesheet" type="text/css" th:href="@{/css/accountInfo.css}">
+   
+      <link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw=="
+	crossorigin="anonymous" />
+	<style type="text/css">
+	.btn_center {
+	margin-left:48%;
+	margin-top: 5%;
+	}
+	  
+	</style>
+   </head>
+   
+   <body>
+           
+      
+    <th:block th:include="/header2"></th:block>
+    <div class="letsalign">
+    <br>
+  <button class="button-87 menu_btns" role="button"><a  th:href="@{/about}">About</a></button>
+  </div>
+  
+
+     
+ 
+  
+  <div class="demo-container1">
+    <div class="center">
+     <a th:href="@{/admin/login}">
+      <button class="btn">
+        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+          <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+          <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+        </svg>
+        <span>Staff</span>
+      </button></a>
+    </div>
+  </div>
+   
+  </div>
+   <div class="demo-container3">
+    <div class="center">
+    <a th:href="@{/productList}">
+      <button class="btn">
+        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+          <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+          <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+        </svg>
+        <span>Customer</span>
+      </button></a>
+    </div>
+  </div>
+   </body>
+</html>

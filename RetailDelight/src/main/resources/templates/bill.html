@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Bill</title>
+      <link rel="icon" type="image" href="/images/mfavicon.ico">
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+      	<link rel="stylesheet" type="text/css" th:href="@{/css/accountInfo.css}">
+      <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      <style>
+        
+         .bill_heading{
+            text-align: center;
+         }
+         body{
+Background-image:
+		url(https://img.freepik.com/free-photo/minimal-shopping-cart-shopping-concept-orange-background-3d-rendering_56104-1396.jpg?w=2000);
+		  height: 100%;
+     background-repeat: no-repeat;
+      background-size: cover; 
+            width: 100%;
+}
+      </style>
+   </head>
+   <body>
+      <th:block th:include="/header3"></th:block>
+
+
+     
+	<body><br>
+<div class="letsalign">
+  <button class="button-87 menu_btns" role="button"><a  th:href="@{/}">Home</a></button>
+  </div>
+  <br>
+      <h1 class="bill_heading"> Bill Details</h1>
+      <table border="1" style="width:100%" class="table table-success table-striped">
+         <tr>
+            <th>Order Num</th>
+            <th>Order Date</th>
+            <th>Customer Name</th>
+            <th>Customer Address</th>
+            <th>Customer Email</th>
+            <th>Amount</th>
+            <th>View</th>
+         </tr>
+         <tr th:each="orderInfo : ${paginationResult.list}">
+            <td th:utext="${orderInfo.orderNum}"></td>
+            <td th:utext="${#dates.format(orderInfo.orderDate,'dd-MM-yyyy HH:mm')}"></td>
+            <td th:utext="${orderInfo.customerName}"></td>
+            <td th:utext="${orderInfo.customerAddress}"></td>
+            <td th:utext="${orderInfo.customerEmail}"></td>
+            <td style="color:red;" th:utext="${#numbers.formatDecimal(orderInfo.amount,1,2,'POINT')}">
+            </td>
+            <td><a th:href="@{|/bill/view?orderId=${orderInfo.id}|}">View</a></td>
+         </tr>
+      </table>
+      
+
+      <th:block th:include="/_footer"></th:block>
+      
+   </body>
+</html>

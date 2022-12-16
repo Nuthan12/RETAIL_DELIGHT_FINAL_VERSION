@@ -1,0 +1,42 @@
+#form-product {
+	max-width: 330px;
+	padding-top: 10px;
+	padding-left: 0px;
+	padding-right: 2px;
+	padding-bottom: 10px;
+	margin: 0 auto;
+	background-color: transparent;
+	
+}
+.product-block td#code {
+    background: url('https://pic.onlinewebfonts.com/svg/img_363569.png') 20px top no-repeat;
+    background-size: 20px 20px;
+    background-position: 29px 20px;
+     color: rgba(0, 0, 0, 0.0);
+}
+.product-block td#name {
+    background: url('https://pic.onlinewebfonts.com/svg/img_231353.png') 30px no-repeat;
+    background-size: 20px 20px;
+     color: rgba(0, 0, 0, 0.0);
+}
+.product-block td#price {
+    background: url('https://icon-library.com/images/price-icon-png/price-icon-png-1.jpg') 30px no-repeat;
+    background-size: 20px 20px;
+    color: rgba(0, 0, 0, 0.0);
+   
+}
+.product-block td#image {
+    background: url('https://pic.onlinewebfonts.com/svg/img_234957.png') 30px no-repeat;
+    background-size: 20px 20px;
+     color: rgba(0, 0, 0, 0.0);
+}
+.product-block td#upload{
+    background: url('https://pic.onlinewebfonts.com/svg/img_523458.png') 30px no-repeat;
+    background-size: 20px 20px;
+    color: rgba(0, 0, 0, 0.0);
+}
+.navbar {
+	margin-left: 750px;
+	
+}
+
