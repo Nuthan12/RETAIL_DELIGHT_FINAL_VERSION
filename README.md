@@ -1,6 +1,6 @@
 # Final-Project-Retail-Delight
 
-Team Members :
+<b>Team Members</b> :
 
 Pramod Gouda
 
@@ -15,12 +15,12 @@ Meghana R
 Archith R A
 
 
-Problem Statement :
+<b>Problem Statement</b> :
 
 Nowadays, in shopping malls we must wait for the billing in a long queue, it accrues traffic in a mall, and it is a very time-consuming process. So, there is a need to design a system that will reduce the time of billing procedure. 
 
 
-Tools and Technologies used :
+<b>Tools and Technologies used</b> :
 
 Spring Hibernate
 
@@ -44,11 +44,11 @@ Maven
 
 JIRA
 
-The design, workflow and test cases are available in the following document : 
+<b>The design, workflow and test cases are available in the following document</b> : 
 https://github.com/Nuthan12/Final-Project-Retail-Delight/blob/main/Retail%20Delight%20Team%203.docx
 
-The issue tracker of the project is available in the following document : 
+<b>The issue tracker of the project is available in the following document</b> : 
 https://github.com/Nuthan12/Final-Project-Retail-Delight/blob/main/Retail%20Delight%20Issue%20Tracker.xlsx
 
-The Sprint Retrospective is available in the following document : 
+<b>The Sprint Retrospective is available in the following document</b> : 
 https://github.com/Nuthan12/Final-Project-Retail-Delight/blob/main/Retrospective.docx
