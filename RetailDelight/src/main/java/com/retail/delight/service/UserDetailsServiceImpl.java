@@ -29,12 +29,13 @@ public class UserDetailsServiceImpl implements UserDetailsService  {
 	 */
     @Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    	logger.info("Fetching Account using username "+username);
+    	logger.info("Fetching Account using username {}",username);
     	Account account = accountDAO.findAccount(username);
     	
         System.out.println("Account= " + account);
 
         if (account == null) {
+        	logger.debug("The Account with username {} not found in the database",username);
             throw new UsernameNotFoundException("User " //
                     + username + " was not found in the database");
         }
@@ -57,7 +58,7 @@ public class UserDetailsServiceImpl implements UserDetailsService  {
         UserDetails userDetails = (UserDetails) new User(account.getUserName(), //
                 account.getEncrytedPassword(), enabled, accountNonExpired, //
                 credentialsNonExpired, accountNonLocked, grantList);
-
+    	logger.info("The userdetails has been succesfully fetched");
         return userDetails;
     }
 

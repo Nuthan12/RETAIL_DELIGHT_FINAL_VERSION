@@ -72,6 +72,7 @@ public class MainController {
    }
    @RequestMapping("/about")
    public String about() {
+	   logger.info("The user is allowed access to the about us page");
       return "/about";
    }
 
@@ -94,12 +95,11 @@ public class MainController {
          @RequestParam(value = "page", defaultValue = "1") int page) {
       final int maxResult = 25;
       final int maxNavigationPage = 10;
-      logger.info("Loading the list of all products");
+      logger.info("Fetching the list of all products for the customer from the database");
       PaginationResult<ProductInfo> result = productDAO.queryProducts(page, //
             maxResult, maxNavigationPage, likeName);
-
+      logger.debug("Loaded a list of {} products fetched from the database",result.getTotalRecords());
       model.addAttribute("paginationProducts", result);
-      logger.debug("Loaded list of all products");
       return "productList";
    }
    //productlistmanager
@@ -109,10 +109,10 @@ public class MainController {
          @RequestParam(value = "page", defaultValue = "1") int page) {
       final int maxResult = 25;
       final int maxNavigationPage = 10;
-
+      logger.info("Fetching the list of all products for the admin from the database");
       PaginationResult<ProductInfo> result = productDAO.queryProducts(page, //
             maxResult, maxNavigationPage, likeName);
-
+      logger.debug("Loaded a list of {} products fetched from the database",result.getTotalRecords());
       model.addAttribute("paginationProducts", result);
       return "productListManager";
    }
@@ -121,52 +121,41 @@ public class MainController {
 	public String listProductHandler(HttpServletRequest request, Model model, //
 			@RequestParam(value = "code", defaultValue = "") String code) {
 		
-		logger.info("Adding the product to the cart");
 		Product product = null;
+		logger.info("The addition of the product with the code {} to the cart",code);
 		logger.info("Validating the length of the product code");
 		if (code != null && code.length() > 0) {
 			product = productDAO.findProduct(code);
-			logger.debug("The length of the product code is {}",code.length());
-			logger.debug("The product fetched to add to the cart is {}", product);
+			logger.debug("The product {} with code {} to be added to the cart is currently been fetched from the product database",product.getName(), product.getCode());
 		}
 		logger.info("Validating the product availablity");
 		if (product != null) {
-
-			logger.info("Fetching the cart info from the cart session");
 			CartInfo cartInfo = Utils.getCartInSession(request);
-			logger.info("Fetching the cart info from the cart session");
 			ProductInfo productInfo = new ProductInfo(product);
-
+			logger.debug("The product {} with code {} to be added to the cart has been succesfully fetched from the product database",productInfo.getName(), productInfo.getCode());
 			cartInfo.addProduct(productInfo, 1);
-			logger.debug("The product added to the cart is {}", product);
-			logger.debug("The product info of the product added to the cart is {}", productInfo);
+			logger.debug("The product {} has been succesfully added to the cart", product.getName());
 		}
-		logger.info("The product has been succesfully added to the cart");
 		return "redirect:/productList";
 	}
    //to remove product from cart 
    @RequestMapping({ "/shoppingCartRemoveProduct" })
 	public String removeProductHandler(HttpServletRequest request, Model model, //
 			@RequestParam(value = "code", defaultValue = "") String code) {
-		logger.info("Removing the product from the cart");
 		Product product = null;
+		logger.info("The removal of the product with the code {} from the cart",code);
 		logger.info("Validating the length of the product code");
 		if (code != null && code.length() > 0) {
 			product = productDAO.findProduct(code);
-			logger.debug("The length of the product code is {}", code.length());
-			logger.debug("The product fetched to remove the cart is {}", product);
+			logger.debug("The product {} with code {} to be removed from the cart is currently been fetched from the product database",product.getName(), product.getCode());
 		}
 		if (product != null) {
-			logger.info("Fetching the cart info from the cart session");
 			CartInfo cartInfo = Utils.getCartInSession(request);
-			logger.info("Fetching the cart info from the cart session");
 			ProductInfo productInfo = new ProductInfo(product);
-
+			logger.debug("The product {} with code {} to be removed from the cart has been succesfully fetched from the product database",productInfo.getName(), productInfo.getCode());
 			cartInfo.removeProduct(productInfo);
-			logger.debug("The product removed from the cart is {}", product);
-			logger.debug("The product info of the product added to the cart is {}", productInfo);
+			logger.debug("The product {} has been succesfully removed from the cart", product.getName());
 		}
-		logger.info("The product has been succesfully removed from the cart");
 		return "redirect:/shoppingCart";
 	}
 
@@ -176,48 +165,38 @@ public class MainController {
 			Model model, //
 			@ModelAttribute("cartForm") CartInfo cartForm) {
 
-		logger.info("Fetching the cart info from the cart session");
 		CartInfo cartInfo = Utils.getCartInSession(request);
-
-		logger.info("Updating the quantity of the product in the cart");
+		logger.info("Updating the quantity of the product {} in the cart",cartInfo.getCartLines().toString());
+		logger.debug("The total quantity of all products in cart before updation is {}",cartInfo.getQuantityTotal());
 		cartInfo.updateQuantity(cartForm);
-		logger.info("The quantity of the product has been succesfully upadted in the cart");
-		logger.debug("The total updated quantity of all products is {}",cartInfo.getQuantityTotal());
-		logger.info("The product has been succesfully removed from the cart");
+		logger.info("The quantity of selected product for updation has been succesfully updated in the cart");
+		logger.debug("The total quantity of all products in cart after updation is {}",cartInfo.getQuantityTotal());
 		return "redirect:/shoppingCart";
 	}
 
 	// GET: Show cart.
 		@RequestMapping(value = { "/shoppingCart" }, method = RequestMethod.GET)
 		public String shoppingCartHandler(HttpServletRequest request, Model model) {
-			logger.info("Fetching the cart info from the cart session");
 			CartInfo myCart = Utils.getCartInSession(request);
 
 			model.addAttribute("cartForm", myCart);
-			logger.debug("Loaded the items in the cart as {}",myCart);
+			logger.debug("Loaded a list of items in the cart as {}",myCart.toString());
 			return "shoppingCart";
 		}
 
 		// GET: Enter customer information.
 		@RequestMapping(value = { "/shoppingCartCustomer" }, method = RequestMethod.GET)
 		public String shoppingCartCustomerForm(HttpServletRequest request, Model model) {
-			logger.info("Fetching the cart info from the cart session");
 			CartInfo cartInfo = Utils.getCartInSession(request);
 			logger.info("Validating the cartInfo");
 			if (cartInfo.isEmpty()) {
-				logger.debug("The cart is empty, {}", cartInfo);
+				logger.error("The cart is empty, {}", cartInfo.toString());
 				return "redirect:/shoppingCart";
 			}
-			logger.info("Fetching the customer information");
 			CustomerInfo customerInfo = cartInfo.getCustomerInfo();
-
-			logger.debug("Before the customer information is fetched : {}",customerInfo);
 			CustomerForm customerForm = new CustomerForm(customerInfo);
-			logger.debug("After the customer information is fetched : {}",customerInfo);
-
-			logger.debug("Before the customer form is fetched : {}",customerForm);
 			model.addAttribute("customerForm", customerForm);
-			logger.debug("After the customer form is fetched : {}",customerForm);
+			logger.info("Fetching the customer information from customer through form");
 			return "shoppingCartCustomer";
 		}
 
@@ -228,27 +207,21 @@ public class MainController {
 				@ModelAttribute("customerForm") @Validated CustomerForm customerForm, //
 				BindingResult result, //
 				final RedirectAttributes redirectAttributes) {
-			logger.info("Saving the customer information");
+			logger.debug("The customer information is fetched from the customer as {}",customerForm.toString());
 
 			logger.info("Validating the customer information");
 			if (result.hasErrors()) {
 				logger.error("The customer form entry is invalid", customerForm);
 				customerForm.setValid(false);
 				// Forward to reenter customer info.
-				logger.info("Redirected to enter the customer information");
+				logger.info("Redirected back to customer form to enter the customer information");
 				return "shoppingCartCustomer";
 			}
-
 			customerForm.setValid(true);
-			logger.debug("The customer form entry is Valid : {}", customerForm);
-
-			logger.info("Fetching the cart info from the cart session");
 			CartInfo cartInfo = Utils.getCartInSession(request);
-
 			CustomerInfo customerInfo = new CustomerInfo(customerForm);
-			logger.debug("Before the customer information is saved : {}",customerInfo);
 			cartInfo.setCustomerInfo(customerInfo);
-			logger.debug("After the customer information is saved : {}",customerInfo);
+			logger.debug("The customer information entered by the customer is saved as {}",customerInfo.toString());
 
 			return "redirect:/shoppingCartConfirmation";
 		}
@@ -257,21 +230,18 @@ public class MainController {
 		@RequestMapping(value = { "/shoppingCartConfirmation" }, method = RequestMethod.GET)
 		public String shoppingCartConfirmationReview(HttpServletRequest request, Model model) {
 
-			logger.info("Fetching the cart info from the cart session");
 			CartInfo cartInfo = Utils.getCartInSession(request);
 
 			logger.info("Validating the cartInfo");
 			if (cartInfo == null || cartInfo.isEmpty()) {
-				logger.debug("The cart is empty, {}", cartInfo);
+				logger.error("The cart is empty {}", cartInfo.toString());
 				return "redirect:/shoppingCart";
 			} else if (!cartInfo.isValidCustomer()) {
-				logger.error("The customer is not invalid, {}",cartInfo);
+				logger.error("The customer informtation is not invalid");
 				return "redirect:/shoppingCartCustomer";
 			}
 			model.addAttribute("myCart", cartInfo);
-			logger.debug("The confirmed cart information is : {}",cartInfo);
-
-			logger.info("The cart has been succesfully confirmed", cartInfo);
+			logger.debug("The cart {} has been succesfully confirmed by the customer",cartInfo.toString());
 			return "shoppingCartConfirmation";
 		}
 
@@ -280,33 +250,28 @@ public class MainController {
 
 		public String shoppingCartConfirmationSave(HttpServletRequest request, Model model) {
 
-			logger.info("Fetching the cart info from the cart session");
 			CartInfo cartInfo = Utils.getCartInSession(request);
-
-			logger.info("Validating the cartInfo");
+			
 			if (cartInfo.isEmpty()) {
-				logger.debug("The cart is empty, {}", cartInfo);
+				logger.error("The cart is empty {}", cartInfo.toString());
 				return "redirect:/shoppingCart";
 			} else if (!cartInfo.isValidCustomer()) {
-				logger.error("The customer is not invalid, {}",cartInfo);
+				logger.error("The customer informtation is not invalid");
 				return "redirect:/shoppingCartCustomer";
 			}
 			try {
 				orderDAO.saveOrder(cartInfo);
-				logger.debug("The cart is {}", cartInfo);
+				logger.debug("The confirmed cart is been stored as {}", cartInfo.toString());
 			} catch (Exception e) {
-				logger.error("The cart is {}", cartInfo);
+				logger.error("The confirmed cart {} could not stored", cartInfo.toString());
 				return "shoppingCartConfirmation";
 			}
 
-			
 			// Remove Cart from Session.
 			Utils.removeCartInSession(request);
-			logger.info("The cart has been removed from the cart session");
 
 			// Store last cart.
 			Utils.storeLastOrderedCartInSession(request, cartInfo);
-			logger.info("The cart has been succesfully stored", cartInfo);
 
 			return "redirect:/shoppingCartFinalize";
 		}
@@ -314,16 +279,15 @@ public class MainController {
 		@RequestMapping(value = { "/shoppingCartFinalize" }, method = RequestMethod.GET)
 		public String shoppingCartFinalize(HttpServletRequest request, Model model) {
 			
-			logger.info("Fetching the cart info from the database");
 			CartInfo lastOrderedCart = Utils.getLastOrderedCartInSession(request);
 
 			logger.info("Validating the cartInfo fetched from the database");
 			if (lastOrderedCart == null) {
-				logger.debug("The cart is empty, {}", lastOrderedCart);
+				logger.debug("The cart is empty {}", lastOrderedCart);
 				return "redirect:/shoppingCart";
 			}
 			model.addAttribute("lastOrderedCart", lastOrderedCart);
-			logger.info("The cart has been succesfully finalized", lastOrderedCart);
+			logger.info("The cart {} has been succesfully checked out", lastOrderedCart.toString());
 			return "shoppingCartFinalize";
 		}
    //to get the product image 
@@ -345,7 +309,6 @@ public class MainController {
    @RequestMapping(value = { "/bill" }, method = RequestMethod.GET)
    public String orderList(Model model, //
          @RequestParam(value = "page", defaultValue = "1") String pageStr) {
-		logger.info("Fetching the bill");
       int page = 1;
       try {
          page = Integer.parseInt(pageStr);
@@ -353,12 +316,11 @@ public class MainController {
       }
       final int MAX_RESULT = 1;
       final int MAX_NAVIGATION_PAGE = 0;
-      logger.info("Fetching the order details from the database");
+
       PaginationResult<OrderInfo> paginationResult //
             = orderDAO.listOrderInfo(page, MAX_RESULT, MAX_NAVIGATION_PAGE);
-
       model.addAttribute("paginationResult", paginationResult);
-      logger.info("The order details has been succesfully fetched from the database");
+      logger.info("Fetching the order details of order from the database for the bill");
       return "bill";
    }
    
@@ -366,17 +328,21 @@ public class MainController {
    @RequestMapping(value = { "/bill/view" }, method = RequestMethod.GET)
    public String orderView(Model model, @RequestParam("orderId") String orderId) {
       OrderInfo orderInfo = null;
+      
+      logger.info("Validating the orderInfo for the order {} fetched from the database",orderId);
       if (orderId != null) {
+    	  logger.debug("The order details for the order id {} is available",orderId);
          orderInfo = this.orderDAO.getOrderInfo(orderId);
       }
       if (orderInfo == null) {
+    	  logger.error("Fetching the order details for the bill from the database for the order id {} not possible",orderId);
          return "redirect:/bill";
       }
       List<OrderDetailInfo> details = this.orderDAO.listOrderDetailInfos(orderId);
       orderInfo.setDetails(details);
-
       model.addAttribute("orderInfo", orderInfo);
-
+      logger.debug("The order details has been fetched from the database for the order id {}",orderId);
+      logger.info("The bill has been succesfully displayed for the order id {}",orderId);
       return "billview";
    }
 

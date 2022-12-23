@@ -127,4 +127,9 @@ public class CartInfo {
 
     }
 
+	@Override
+	public String toString() {
+		return "CartInfo [cartLines=" + cartLines + "]";
+	}
+
 }

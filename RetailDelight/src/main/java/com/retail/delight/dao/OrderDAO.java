@@ -125,6 +125,4 @@ public class OrderDAO {
 
 		return query.getResultList();
 	}
-	
-
 }

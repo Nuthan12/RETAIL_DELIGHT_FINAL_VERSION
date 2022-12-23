@@ -64,4 +64,8 @@ public class CustomerForm {
         this.valid = valid;
     }
 
+	@Override
+	public String toString() {
+		return "CustomerForm [name=" + name + ", address=" + address + ", email=" + email + ", phone=" + phone + "]";
+	}
 }

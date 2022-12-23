@@ -28,5 +28,9 @@ public class CartLineInfo {
     public double getAmount() {
         return this.productInfo.getPrice() * this.quantity;
     }
-    
+
+	@Override
+	public String toString() {
+		return "CartLineInfo [productInfo=" + productInfo + ", quantity=" + quantity + "]";
+	}
 }

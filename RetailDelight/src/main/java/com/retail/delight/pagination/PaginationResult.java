@@ -126,5 +126,4 @@ public class PaginationResult<E> {
    public List<Integer> getNavigationPages() {
       return navigationPages;
    }
-
 }

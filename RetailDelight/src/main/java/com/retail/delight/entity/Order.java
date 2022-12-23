@@ -105,4 +105,10 @@ public class Order implements Serializable {
         this.customerPhone = customerPhone;
     }
 
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", orderDate=" + orderDate + ", orderNum=" + orderNum + ", amount=" + amount
+				+ ", customerName=" + customerName + ", customerAddress=" + customerAddress + ", customerEmail="
+				+ customerEmail + ", customerPhone=" + customerPhone + "]";
+	}
 }

@@ -47,4 +47,9 @@ public class ProductInfo {
         this.price = price;
     }
 
+	@Override
+	public String toString() {
+		return "ProductInfo [code=" + code + ", name=" + name + ", price=" + price + "]";
+	}
+
 }

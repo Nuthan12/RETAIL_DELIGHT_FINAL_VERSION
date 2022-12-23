@@ -72,4 +72,10 @@ public class OrderDetailInfo {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+	@Override
+	public String toString() {
+		return "OrderDetailInfo [id=" + id + ", productCode=" + productCode + ", productName=" + productName
+				+ ", quanity=" + quanity + ", price=" + price + ", amount=" + amount + "]";
+	}
 }

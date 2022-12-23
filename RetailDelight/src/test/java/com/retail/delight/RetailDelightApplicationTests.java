@@ -3,7 +3,6 @@ package com.retail.delight;
 import static org.junit.Assert.*;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,11 +36,10 @@ class RetailDelightApplicationTests {
 		assertNotEquals(role, account.getUserRole());
 	}
 	
-/*	@Test
+	@Test
 	void testProductDAO() {
-		Product p = pDao.findProduct("S001");
-		assertEquals(p.getPrice(),(double)(10.00),0.000001);
-		assertEquals(p.getName(),"Kitkat");
-		assertArrayEquals(p.getImage(),null);
-	}*/
+		Product p = pDao.findProduct("RD005");
+		assertEquals(p.getPrice(),(double)(20.00),0.000001);
+		assertEquals(p.getName(),"DAIRY MILK");
+	}
 }

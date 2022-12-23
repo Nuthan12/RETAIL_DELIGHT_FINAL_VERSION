@@ -108,5 +108,11 @@ public class OrderInfo {
         this.details = details;
     }
 
+	@Override
+	public String toString() {
+		return "OrderInfo [id=" + id + ", orderDate=" + orderDate + ", orderNum=" + orderNum + ", amount=" + amount
+				+ ", customerName=" + customerName + ", customerAddress=" + customerAddress + ", customerEmail="
+				+ customerEmail + ", customerPhone=" + customerPhone + ", details=" + details + "]";
+	}
 }
 

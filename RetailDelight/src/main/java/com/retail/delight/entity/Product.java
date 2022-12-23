@@ -1,6 +1,7 @@
 package com.retail.delight.entity;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -78,4 +79,8 @@ public class Product implements Serializable {
         this.image = image;
     }
 
+	@Override
+	public String toString() {
+		return "Product [code=" + code + ", name=" + name + ", price=" + price + "]";
+	}
 }

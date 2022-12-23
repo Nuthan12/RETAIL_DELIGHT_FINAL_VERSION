@@ -63,4 +63,8 @@ public class CustomerInfo {
         this.valid = valid;
     }
 
+	@Override
+	public String toString() {
+		return "CustomerInfo [name=" + name + ", address=" + address + ", email=" + email + ", phone=" + phone + "]";
+	}
 }
