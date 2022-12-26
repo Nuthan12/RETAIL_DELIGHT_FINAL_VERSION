@@ -5,15 +5,6 @@ import java.util.List;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.retail.delight.dao.OrderDAO;
-import com.retail.delight.dao.ProductDAO;
-import com.retail.delight.entity.Product;
-import com.retail.delight.form.ProductForm;
-import com.retail.delight.model.OrderDetailInfo;
-import com.retail.delight.model.OrderInfo;
-import com.retail.delight.pagination.PaginationResult;
-import com.retail.delight.validator.ProductFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,12 +14,25 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.retail.delight.dao.AccountDAO;
+import com.retail.delight.dao.OrderDAO;
+import com.retail.delight.dao.ProductDAO;
+import com.retail.delight.entity.Product;
+import com.retail.delight.form.ProductForm;
+import com.retail.delight.model.OrderDetailInfo;
+import com.retail.delight.model.OrderInfo;
+import com.retail.delight.pagination.PaginationResult;
+import com.retail.delight.service.SendMail;
+import com.retail.delight.validator.ProductFormValidator;
 
 @Controller
 @Transactional
@@ -42,6 +46,11 @@ public class AdminController {
 
 	@Autowired
 	private ProductFormValidator productFormValidator;
+
+	private AccountDAO accountDAO;
+
+	@Autowired
+	private SendMail sendMail;
 
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
@@ -64,6 +73,29 @@ public class AdminController {
 	public String login(Model model) {
 		logger.info("The admin is allowed access to the home page");
 		return "login";
+	}
+
+	@PostMapping("/forgotPassword")
+	public String forgotPassword(Model model){
+		logger.info("The admin is redirected to the forgotten password page");
+		return "forgotPassword";
+
+	}
+
+	@GetMapping("/forgotPasswordManager")
+	public String forgotPasswordManager(Model model){
+		logger.info("Intiating Password recovery through the mail service");
+		sendMail.sendForgotPasswordToManager("managerrdsm@gmail.com", "Admin", "Password Recovery");
+		logger.info("The password for recovery has been succesfully sent to the Manager's email");
+		return "forgotPasswordManager";
+	}
+
+	@GetMapping("/forgotPasswordEmployee")
+	public String forgotPasswordEmployee(Model model){
+		logger.info("Intiating Password recovery through the mail service");
+		sendMail.sendForgotPasswordToEmployee("employeerdsm@gmail.com", "Admin", "Password Recovery");
+		logger.info("The password for recovery has been succesfully sent to the Employee's email");
+		return "forgotPasswordEmployee";
 	}
 
 	@RequestMapping(value = { "/admin/accountInfo" }, method = RequestMethod.GET)

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8">
-      <title>Login</title>
-      <link rel="icon" type="image" href="/images/mfavicon.ico">
-      <link rel="stylesheet" href="/css/style.css" />
-      <link
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="icon" type="image" href="/images/mfavicon.ico">
+<link rel="stylesheet" href="/css/style.css" />
+<link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw=="
@@ -14,68 +14,88 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 .btn_center {
-	margin-left:48%;
+	margin-left: 48%;
 	margin-top: 5%;
-	}</style>
-   
-   </head>
-   <body>
-   
-   	
-		<div class="header-container"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<th:block th:include="/header2"></th:block>
-  
-  
-   
-   
-  
-</div>
+}
+.forgotbtn {
+margin-left:1.6%;
+}
+</style>
 
-      <button class="button-87 menu_btns btn_center"><a th:href="@{/}">Home</a></button>
-     
-      
-      <div class="page-title">Login</div>
-      
 
-  
-         <br>
-         <!-- /login?error=true -->
-         <th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
-             <div th:if= "${#request.getParameter('error') == 'true'}"
-                style="color: red; margin: 10px 0px;">
-                Login Failed!!!<br /> Reason :
-                <span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
-             </div>
-         </th:block>
-         
-         <form method="POST"
-            th:action="@{/j_spring_security_check}" id="login">
-            <table class="login-block">
-               <tr>
-                  <td id="username"></td>
-                  <td><input name="userName" placeholder="Enter Username" class="form-control"/></td>
-               </tr>
-               <tr>
-                  <td id="password">Password *</td>
-                  <td><input type="password" name="password" placeholder="Enter Password" class="form-control"/></td>
-               </tr>
-               <tr>
-                  <td>&nbsp;</td>
-                  <td>
-                      <button class="btn btn-lg btn-primary btn-block" input type="submit" value="Login">Login</button>
-                      <button class="btn btn-lg btn-warning btn-block" input type="reset"  value="Reset">Reset</button>
-                  </td>
-               </tr>
-            </table>
-         </form>
-         
-         <span class="error-message" th:utext="${error}"></span>
-    
-      
+</head>
+<body>
 
-      
-      
-   </body>
+
+	<div class="header-container" xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+		<th:block th:include="/header2"></th:block>
+
+
+
+
+
+	</div>
+
+
+
+	<button class="button-87 menu_btns btn_center">
+		<a th:href="@{/}">Home</a>
+	</button>
+
+
+	<div class="page-title">Login</div>
+
+
+
+
+	<br>
+	<!-- /login?error=true -->
+	<th:block
+		th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
+		<div th:if="${#request.getParameter('error') == 'true'}"
+			style="color: red; margin: 10px 0px;">
+			Login Failed!!!<br /> Reason : <span
+				th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
+		</div>
+	</th:block>
+
+	<form method="POST" th:action="@{/j_spring_security_check}" id="login">
+		<table class="login-block">
+			<tr>
+				<td id="username"></td>
+				<td><input name="userName" placeholder="Enter Username"
+					class="form-control" /></td>
+			</tr>
+			<tr>
+				<td id="password">Password *</td>
+				<td><input type="password" name="password"
+					placeholder="Enter Password" class="form-control" /></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<button class="btn btn-lg btn-primary btn-block" input
+						type="submit" value="Login">Login</button>
+					<button class="btn btn-lg btn-warning btn-block" input type="reset"
+						value="Reset">Reset</button>
+
+
+				</td>
+			</tr>
+		</table>
+	</form>
+	<form method="POST" th:action="@{/forgotPassword}" class="forgotbtn">
+		 <a href="/forgotPassword"><button class="btn btn-lg btn-primary "
+				input type="submit" value="Forgot">Forgot Password</button></a>
+	</form>
+
+	<span class="error-message" th:utext="${error}"></span>
+
+
+
+
+
+
+</body>
 </html>

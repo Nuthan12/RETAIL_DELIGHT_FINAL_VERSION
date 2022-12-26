@@ -102,6 +102,11 @@ public class OrderDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.find(Order.class, orderId);
 	}
+	
+	public OrderDetail findOrderDetailsById(String id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        return session.find(OrderDetail.class, id);
+    }
 
 	public OrderInfo getOrderInfo(String orderId) {
 		Order order = this.findOrder(orderId);
