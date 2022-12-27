@@ -1,6 +1,6 @@
 package com.retail.delight.entity;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 import java.util.Date;
 
 import javax.persistence.Column;

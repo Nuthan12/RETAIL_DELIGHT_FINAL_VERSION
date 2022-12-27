@@ -2,10 +2,17 @@ package com.retail.delight;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.web.servlet.MockMvc;
 
 import com.retail.delight.dao.AccountDAO;
 import com.retail.delight.dao.OrderDAO;
@@ -17,6 +24,8 @@ import com.retail.delight.entity.Product;
 import com.retail.delight.model.OrderInfo;
 
 @SpringBootTest
+@EnableAutoConfiguration(exclude=SecurityAutoConfiguration.class)
+@AutoConfigureMockMvc
 class RetailDelightApplicationTests {
 
 	@Autowired
@@ -25,7 +34,11 @@ class RetailDelightApplicationTests {
 	@Autowired
 	private OrderDAO oDao;
 
-	private AccountDAO aDAO;
+	@Autowired
+	private MockMvc mvc;
+
+	@Autowired
+	private AccountDAO accountDAO;
 
 	private Account account = new Account("manager","123",true,"ROLE_MANAGER");
 
@@ -90,5 +103,36 @@ class RetailDelightApplicationTests {
 		assertEquals(od2.getPrice(), (double) (48.1),0.000001);
 		assertEquals(od2.getProduct().getCode(), "RD0015");
 		assertEquals(od2.getOrder().getId(), "c2ae29ff-fb8c-46d1-bdb7-669f3bef8d15");
+	}
+
+	@Test
+	public void testLoginPage() throws Exception {
+		mvc.perform(get("/admin/login")).andExpect(status().isOk());
+	}
+
+
+	@Test
+	@WithMockUser(authorities="ROLE_EMPLOYEE")
+	public void testAdminAccessEmployee() throws Exception {
+		mvc.perform(get("/admin/accountInfo")).andExpect(status().isOk());
+		mvc.perform(get("/admin/orderList")).andExpect(status().isOk());
+	}
+	
+	@Test
+	@WithMockUser(authorities="ROLE_MANAGER")
+	public void testAdminAccessForManager() throws Exception {
+		mvc.perform(get("/admin/accountInfo")).andExpect(status().isOk());
+		mvc.perform(get("/productListManager")).andExpect(status().isOk());
+		mvc.perform(get("/admin/orderList")).andExpect(status().isOk());
+		mvc.perform(get("/admin/product")).andExpect(status().isOk());		
+	}
+	
+	@Test
+	@WithMockUser(authorities="ROLE_CUSTOMER")
+	public void testlCustomerAccesstoAdmin() throws Exception {
+		mvc.perform(get("/admin/accountInfo")).andExpect(status().isForbidden());
+		mvc.perform(get("/productListManager")).andExpect(status().isForbidden());
+		mvc.perform(get("/admin/orderList")).andExpect(status().isForbidden());
+		mvc.perform(get("/admin/product")).andExpect(status().isForbidden());		
 	}
 }

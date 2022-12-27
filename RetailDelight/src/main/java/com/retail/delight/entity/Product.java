@@ -1,6 +1,7 @@
 package com.retail.delight.entity;
 
 import java.io.Serializable;
+
 import java.util.Arrays;
 import java.util.Date;
 
