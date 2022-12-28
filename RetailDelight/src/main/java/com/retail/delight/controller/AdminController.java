@@ -47,8 +47,6 @@ public class AdminController {
 	@Autowired
 	private ProductFormValidator productFormValidator;
 
-	private AccountDAO accountDAO;
-
 	@Autowired
 	private SendMail sendMail;
 
@@ -95,6 +93,8 @@ public class AdminController {
 		logger.info("Intiating Password recovery through the mail service");
 		sendMail.sendForgotPasswordToEmployee("employeerdsm@gmail.com", "Admin", "Password Recovery");
 		logger.info("The password for recovery has been succesfully sent to the Employee's email");
+//		String s = null;
+//      System.out.println(s.length());
 		return "forgotPasswordEmployee";
 	}
 

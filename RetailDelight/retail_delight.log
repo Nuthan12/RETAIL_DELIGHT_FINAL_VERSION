@@ -1,0 +1,298 @@
+2022-12-28 09:52:19.788  INFO 7532 --- [main] c.r.d.RetailDelightApplicationTests      : Starting RetailDelightApplicationTests using Java 1.8.0_121 on VDC01LTC2178 with PID 7532 (started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 09:52:19.804 DEBUG 7532 --- [main] c.r.d.RetailDelightApplicationTests      : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 09:52:19.805  INFO 7532 --- [main] c.r.d.RetailDelightApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 09:52:20.848  INFO 7532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 09:52:20.895  INFO 7532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 0 JPA repository interfaces.
+2022-12-28 09:52:22.077  INFO 7532 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-28 09:52:33.723  INFO 7532 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-28 09:52:34.816  INFO 7532 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 09:52:35.925  INFO 7532 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 09:52:36.389  INFO 7532 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2f5d6a41, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15f02824, org.springframework.security.web.context.SecurityContextPersistenceFilter@3cc017fc, org.springframework.security.web.header.HeaderWriterFilter@6986ed5d, org.springframework.security.web.authentication.logout.LogoutFilter@3c36cef3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5e497527, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18e01873, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@169afb1c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14bb7918, org.springframework.security.web.session.SessionManagementFilter@a28d565, org.springframework.security.web.access.ExceptionTranslationFilter@5284ae6e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22e620b3]
+2022-12-28 09:52:37.211  INFO 7532 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 09:52:37.745  INFO 7532 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-12-28 09:52:37.746  INFO 7532 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-12-28 09:52:37.747  INFO 7532 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-12-28 09:52:37.779  INFO 7532 --- [main] c.r.d.RetailDelightApplicationTests      : Started RetailDelightApplicationTests in 18.432 seconds (JVM running for 19.94)
+2022-12-28 09:52:38.144  INFO 7532 --- [main] c.r.delight.controller.AdminController   : Fetching the user details for the admin
+2022-12-28 09:52:38.145 DEBUG 7532 --- [main] c.r.delight.controller.AdminController   : The user details for the admin has been fetched, org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_EMPLOYEE]]
+2022-12-28 09:52:38.797  INFO 7532 --- [main] c.r.delight.controller.AdminController   : Fetching the order list from the database
+2022-12-28 09:52:38.980 DEBUG 7532 --- [main] c.r.delight.controller.AdminController   : The order list has been succesfully fetched with 15 orders
+2022-12-28 09:52:39.231  INFO 7532 --- [main] c.r.delight.controller.AdminController   : The admin is allowed access to the home page
+2022-12-28 09:52:39.737  INFO 7532 --- [main] c.r.delight.controller.AdminController   : Fetching the user details for the admin
+2022-12-28 09:52:39.737 DEBUG 7532 --- [main] c.r.delight.controller.AdminController   : The user details for the admin has been fetched, org.springframework.security.core.userdetails.User [Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_MANAGER]]
+2022-12-28 09:52:40.090  INFO 7532 --- [main] c.r.delight.controller.MainController    : Fetching the list of all products for the admin from the database
+2022-12-28 09:52:40.114 DEBUG 7532 --- [main] c.r.delight.controller.MainController    : Loaded a list of 18 products fetched from the database
+2022-12-28 09:52:40.492  INFO 7532 --- [main] c.r.delight.controller.AdminController   : Fetching the order list from the database
+2022-12-28 09:52:40.497 DEBUG 7532 --- [main] c.r.delight.controller.AdminController   : The order list has been succesfully fetched with 15 orders
+2022-12-28 09:52:40.811  INFO 7532 --- [main] c.r.delight.controller.AdminController   : Validating the length of the product code
+2022-12-28 09:52:40.811 ERROR 7532 --- [main] c.r.delight.controller.AdminController   : The product could not be added to the database
+2022-12-28 09:52:40.811  INFO 7532 --- [main] c.r.delight.controller.AdminController   : The product has been succesfully fetched and loaded from the product list
+2022-12-28 09:52:54.543  INFO 11180 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 11180 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 09:52:54.544 DEBUG 11180 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 09:52:54.544  INFO 11180 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 09:52:54.604  INFO 11180 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Ritesh.Singh\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Ritesh.Singh/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
+2022-12-28 09:52:54.605  INFO 11180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-28 09:52:54.605  INFO 11180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-28 09:52:55.308  INFO 11180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 09:52:55.327  INFO 11180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2022-12-28 09:52:56.545  INFO 11180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 09:52:56.571  INFO 11180 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 09:52:56.571  INFO 11180 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 09:52:56.694  INFO 11180 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 09:52:56.695  INFO 11180 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2090 ms
+2022-12-28 09:52:57.138  INFO 11180 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-28 09:53:05.802  INFO 11180 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-28 09:53:06.487  INFO 11180 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 09:53:07.535  INFO 11180 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 09:53:07.782  INFO 11180 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@727a58a0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a2fd6bf, org.springframework.security.web.context.SecurityContextPersistenceFilter@5cf31242, org.springframework.security.web.header.HeaderWriterFilter@71798411, org.springframework.security.web.authentication.logout.LogoutFilter@1c0238c6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@766b166e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29c4629d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21b48ddd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@692dec05, org.springframework.security.web.session.SessionManagementFilter@456ae306, org.springframework.security.web.access.ExceptionTranslationFilter@6220968e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73558311]
+2022-12-28 09:53:07.995  INFO 11180 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 09:53:08.280  INFO 11180 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-28 09:53:08.345  INFO 11180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-12-28 09:53:08.358  INFO 11180 --- [restartedMain] c.r.delight.RetailDelightApplication     : Started RetailDelightApplication in 14.252 seconds (JVM running for 14.916)
+2022-12-28 09:53:15.712  INFO 11180 --- [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-28 09:53:15.712  INFO 11180 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-28 09:53:15.713  INFO 11180 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-12-28 09:53:15.956  INFO 11180 --- [http-nio-9090-exec-1] c.r.delight.controller.MainController    : The user is allowed access to the home page
+2022-12-28 09:53:19.563  INFO 11180 --- [http-nio-9090-exec-6] c.r.delight.controller.AdminController   : The admin is allowed access to the home page
+2022-12-28 09:53:24.485  INFO 11180 --- [http-nio-9090-exec-9] c.r.d.service.UserDetailsServiceImpl     : Fetching Account using username manager
+2022-12-28 09:53:24.680  INFO 11180 --- [http-nio-9090-exec-9] c.r.d.service.UserDetailsServiceImpl     : The userdetails has been succesfully fetched
+2022-12-28 09:53:24.952  INFO 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.AdminController   : Fetching the user details for the admin
+2022-12-28 09:53:24.953 DEBUG 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.AdminController   : The user details for the admin has been fetched, org.springframework.security.core.userdetails.User [Username=manager, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_MANAGER]]
+2022-12-28 09:53:27.457  INFO 11180 --- [http-nio-9090-exec-4] c.r.delight.controller.MainController    : Fetching the list of all products for the admin from the database
+2022-12-28 09:53:27.671 DEBUG 11180 --- [http-nio-9090-exec-4] c.r.delight.controller.MainController    : Loaded a list of 18 products fetched from the database
+2022-12-28 09:53:29.947  INFO 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.AdminController   : Fetching the user details for the admin
+2022-12-28 09:53:29.948 DEBUG 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.AdminController   : The user details for the admin has been fetched, org.springframework.security.core.userdetails.User [Username=manager, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_MANAGER]]
+2022-12-28 09:53:31.353  INFO 11180 --- [http-nio-9090-exec-3] c.r.delight.controller.AdminController   : Fetching the order list from the database
+2022-12-28 09:53:31.415 DEBUG 11180 --- [http-nio-9090-exec-3] c.r.delight.controller.AdminController   : The order list has been succesfully fetched with 15 orders
+2022-12-28 09:53:33.292  INFO 11180 --- [http-nio-9090-exec-6] c.r.delight.controller.AdminController   : Fetching the user details for the admin
+2022-12-28 09:53:33.293 DEBUG 11180 --- [http-nio-9090-exec-6] c.r.delight.controller.AdminController   : The user details for the admin has been fetched, org.springframework.security.core.userdetails.User [Username=manager, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_MANAGER]]
+2022-12-28 09:53:34.544  INFO 11180 --- [http-nio-9090-exec-4] c.r.delight.controller.AdminController   : Validating the length of the product code
+2022-12-28 09:53:34.544 ERROR 11180 --- [http-nio-9090-exec-4] c.r.delight.controller.AdminController   : The product could not be added to the database
+2022-12-28 09:53:34.544  INFO 11180 --- [http-nio-9090-exec-4] c.r.delight.controller.AdminController   : The product has been succesfully fetched and loaded from the product list
+2022-12-28 09:53:39.098  INFO 11180 --- [http-nio-9090-exec-3] c.r.delight.controller.AdminController   : Fetching the user details for the admin
+2022-12-28 09:53:39.098 DEBUG 11180 --- [http-nio-9090-exec-3] c.r.delight.controller.AdminController   : The user details for the admin has been fetched, org.springframework.security.core.userdetails.User [Username=manager, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_MANAGER]]
+2022-12-28 09:53:40.239  INFO 11180 --- [http-nio-9090-exec-6] c.r.delight.controller.MainController    : The user is allowed access to the home page
+2022-12-28 09:53:41.638  INFO 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : Fetching the list of all products for the customer from the database
+2022-12-28 09:53:41.643 DEBUG 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : Loaded a list of 18 products fetched from the database
+2022-12-28 09:53:44.366  INFO 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : The addition of the product with the code RD0016 to the cart
+2022-12-28 09:53:44.366  INFO 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : Validating the length of the product code
+2022-12-28 09:53:44.414 DEBUG 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : The product GARNIER with code RD0016 to be added to the cart is currently been fetched from the product database
+2022-12-28 09:53:44.414  INFO 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : Validating the product availablity
+2022-12-28 09:53:44.415  INFO 11180 --- [http-nio-9090-exec-10] com.retail.delight.utils.Utils           : Fetching the cart info from the cart session
+2022-12-28 09:53:44.416 DEBUG 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : The product GARNIER with code RD0016 to be added to the cart has been succesfully fetched from the product database
+2022-12-28 09:53:44.424 DEBUG 11180 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : The product GARNIER has been succesfully added to the cart
+2022-12-28 09:53:44.821  INFO 11180 --- [http-nio-9090-exec-8] c.r.delight.controller.MainController    : Fetching the list of all products for the customer from the database
+2022-12-28 09:53:44.836 DEBUG 11180 --- [http-nio-9090-exec-8] c.r.delight.controller.MainController    : Loaded a list of 18 products fetched from the database
+2022-12-28 09:53:45.737  INFO 11180 --- [http-nio-9090-exec-4] com.retail.delight.utils.Utils           : Fetching the cart info from the cart session
+2022-12-28 09:53:45.737 DEBUG 11180 --- [http-nio-9090-exec-4] c.r.delight.controller.MainController    : Loaded a list of items in the cart as CartInfo [cartLines=[CartLineInfo [productInfo=ProductInfo [code=RD0016, name=GARNIER, price=187.2], quantity=1]]]
+2022-12-28 09:53:52.733  INFO 11180 --- [http-nio-9090-exec-3] com.retail.delight.utils.Utils           : Fetching the cart info from the cart session
+2022-12-28 09:53:52.733  INFO 11180 --- [http-nio-9090-exec-3] c.r.delight.controller.MainController    : Updating the quantity of the product [CartLineInfo [productInfo=ProductInfo [code=RD0016, name=GARNIER, price=187.2], quantity=1]] in the cart
+2022-12-28 09:53:52.733 DEBUG 11180 --- [http-nio-9090-exec-3] c.r.delight.controller.MainController    : The total quantity of all products in cart before updation is 1
+2022-12-28 09:53:52.733  INFO 11180 --- [http-nio-9090-exec-3] c.r.delight.controller.MainController    : The quantity of selected product for updation has been succesfully updated in the cart
+2022-12-28 09:53:52.733 DEBUG 11180 --- [http-nio-9090-exec-3] c.r.delight.controller.MainController    : The total quantity of all products in cart after updation is 100
+2022-12-28 09:53:52.813  INFO 11180 --- [http-nio-9090-exec-2] com.retail.delight.utils.Utils           : Fetching the cart info from the cart session
+2022-12-28 09:53:52.813 DEBUG 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : Loaded a list of items in the cart as CartInfo [cartLines=[CartLineInfo [productInfo=ProductInfo [code=RD0016, name=GARNIER, price=187.2], quantity=100]]]
+2022-12-28 09:53:55.566  INFO 11180 --- [http-nio-9090-exec-7] com.retail.delight.utils.Utils           : Fetching the cart info from the cart session
+2022-12-28 09:53:55.567  INFO 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.MainController    : Validating the cartInfo
+2022-12-28 09:53:55.567  INFO 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.MainController    : Fetching the customer information from customer through form
+2022-12-28 09:54:02.022 DEBUG 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : The customer information is fetched from the customer as CustomerForm [name=, address=BANGALORE, email=ritesh@gmail.com, phone=7300422656]
+2022-12-28 09:54:02.023  INFO 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : Validating the customer information
+2022-12-28 09:54:02.023 ERROR 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : The customer form entry is invalid
+2022-12-28 09:54:02.023  INFO 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : Redirected back to customer form to enter the customer information
+2022-12-28 09:54:11.106 ERROR 11180 --- [http-nio-9090-exec-7] c.r.d.validator.CustomerFormValidator    : The customer email entry is invalid, ritesh@gmail.
+2022-12-28 09:54:11.238 DEBUG 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.MainController    : The customer information is fetched from the customer as CustomerForm [name=RITESH, address=BANGALORE, email=ritesh@gmail., phone=7300422656]
+2022-12-28 09:54:11.239  INFO 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.MainController    : Validating the customer information
+2022-12-28 09:54:11.239 ERROR 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.MainController    : The customer form entry is invalid
+2022-12-28 09:54:11.239  INFO 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.MainController    : Redirected back to customer form to enter the customer information
+2022-12-28 09:54:23.306 ERROR 11180 --- [http-nio-9090-exec-2] c.r.d.validator.CustomerFormValidator    : The customer email entry is invalid, ritesh@gmail.
+2022-12-28 09:54:23.448 DEBUG 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : The customer information is fetched from the customer as CustomerForm [name=  , address=BANGALORE, email=ritesh@gmail., phone=7300422656]
+2022-12-28 09:54:23.448  INFO 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : Validating the customer information
+2022-12-28 09:54:23.448 ERROR 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : The customer form entry is invalid
+2022-12-28 09:54:23.448  INFO 11180 --- [http-nio-9090-exec-2] c.r.delight.controller.MainController    : Redirected back to customer form to enter the customer information
+2022-12-28 09:54:32.755  INFO 11180 --- [http-nio-9090-exec-7] c.r.delight.controller.MainController    : The user is allowed access to the home page
+2022-12-28 10:39:42.271  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 22468 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 10:39:42.272 DEBUG 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 10:39:42.273  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 10:39:42.349  INFO 22468 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Ritesh.Singh\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Ritesh.Singh/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
+2022-12-28 10:39:42.350  INFO 22468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-28 10:39:42.350  INFO 22468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-28 10:39:43.297  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 10:39:43.322  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2022-12-28 10:39:44.533  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 10:39:44.549  INFO 22468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 10:39:44.550  INFO 22468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 10:39:44.716  INFO 22468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 10:39:44.717  INFO 22468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2366 ms
+2022-12-28 10:39:45.279  INFO 22468 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2022-12-28 10:39:54.772  INFO 22468 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-28 10:39:55.565  INFO 22468 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 10:39:56.612  INFO 22468 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 10:39:57.181  INFO 22468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@58b67e96, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a5cbc37, org.springframework.security.web.context.SecurityContextPersistenceFilter@6dfe71de, org.springframework.security.web.header.HeaderWriterFilter@364ec467, org.springframework.security.web.authentication.logout.LogoutFilter@2c3bcb7f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@739c95cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61e97d54, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6fea9ef9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60451abe, org.springframework.security.web.session.SessionManagementFilter@4d91f7fa, org.springframework.security.web.access.ExceptionTranslationFilter@1b8b3c10, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@a4f2778]
+2022-12-28 10:39:57.433  INFO 22468 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 10:39:57.747  INFO 22468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-28 10:39:57.789  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-12-28 10:39:57.805  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Started RetailDelightApplication in 16.114 seconds (JVM running for 17.712)
+2022-12-28 10:40:28.366  INFO 22468 --- [http-nio-9090-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-28 10:40:28.366  INFO 22468 --- [http-nio-9090-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-28 10:40:28.367  INFO 22468 --- [http-nio-9090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-12-28 10:40:28.610  INFO 22468 --- [http-nio-9090-exec-5] c.r.delight.controller.MainController    : The user is allowed access to the home page
+2022-12-28 10:40:30.148  INFO 22468 --- [http-nio-9090-exec-9] c.r.delight.controller.AdminController   : The admin is allowed access to the home page
+2022-12-28 10:40:31.597  INFO 22468 --- [http-nio-9090-exec-6] c.r.delight.controller.AdminController   : The admin is redirected to the forgotten password page
+2022-12-28 10:40:33.170  INFO 22468 --- [http-nio-9090-exec-4] c.r.delight.controller.AdminController   : Intiating Password recovery through the mail service
+2022-12-28 10:40:33.174  INFO 22468 --- [http-nio-9090-exec-4] com.retail.delight.service.SendMailImpl  : Sending the forgotten password to the Manager
+2022-12-28 10:40:36.865  INFO 22468 --- [http-nio-9090-exec-4] c.r.delight.controller.AdminController   : The password for recovery has been succesfully sent to the Manager's email
+2022-12-28 10:43:00.120  INFO 22468 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-28 10:43:00.218  INFO 22468 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-28 10:43:00.219  INFO 22468 --- [Thread-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-12-28 10:43:00.459  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 22468 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 10:43:00.460 DEBUG 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 10:43:00.461  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 10:43:00.777  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 10:43:00.785  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JPA repository interfaces.
+2022-12-28 10:43:01.047  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 10:43:01.048  INFO 22468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 10:43:01.048  INFO 22468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 10:43:01.087  INFO 22468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 10:43:01.088  INFO 22468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 618 ms
+2022-12-28 10:43:09.870  INFO 22468 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 10:43:10.026  INFO 22468 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 10:43:10.116  INFO 22468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1eb7b93d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@199061c6, org.springframework.security.web.context.SecurityContextPersistenceFilter@6d02c540, org.springframework.security.web.header.HeaderWriterFilter@3d085558, org.springframework.security.web.authentication.logout.LogoutFilter@37fd6ce0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1efe568a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21aa2c83, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e770f7b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4db81c00, org.springframework.security.web.session.SessionManagementFilter@8735702, org.springframework.security.web.access.ExceptionTranslationFilter@50a398e3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d6f3276]
+2022-12-28 10:43:10.198  INFO 22468 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 10:43:10.263  INFO 22468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-28 10:43:10.284  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-12-28 10:43:10.288  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Started RetailDelightApplication in 9.883 seconds (JVM running for 210.195)
+2022-12-28 10:43:10.290  INFO 22468 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-28 10:43:11.716  INFO 22468 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-28 10:43:11.810  INFO 22468 --- [Thread-9] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-28 10:43:12.241  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 22468 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 10:43:12.242 DEBUG 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 10:43:12.242  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 10:43:12.503  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 10:43:12.509  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2022-12-28 10:43:12.689  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 10:43:12.690  INFO 22468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 10:43:12.690  INFO 22468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 10:43:12.722  INFO 22468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 10:43:12.724  INFO 22468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 474 ms
+2022-12-28 10:43:21.251  INFO 22468 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 10:43:21.382  INFO 22468 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 10:43:21.461  INFO 22468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2e087d48, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6d3fec59, org.springframework.security.web.context.SecurityContextPersistenceFilter@205b59d1, org.springframework.security.web.header.HeaderWriterFilter@490f6195, org.springframework.security.web.authentication.logout.LogoutFilter@460c75b7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6acbb1a0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@796d359e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bdce0ef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2be7ec59, org.springframework.security.web.session.SessionManagementFilter@7971c728, org.springframework.security.web.access.ExceptionTranslationFilter@55119fc3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5f0323a4]
+2022-12-28 10:43:21.526  INFO 22468 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 10:43:21.591  INFO 22468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-28 10:43:21.609  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-12-28 10:43:21.615  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Started RetailDelightApplication in 9.422 seconds (JVM running for 221.522)
+2022-12-28 10:43:21.617  INFO 22468 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-28 10:43:29.124  INFO 22468 --- [http-nio-9090-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-28 10:43:29.124  INFO 22468 --- [http-nio-9090-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-28 10:43:29.126  INFO 22468 --- [http-nio-9090-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-12-28 10:43:29.222  INFO 22468 --- [http-nio-9090-exec-10] c.r.delight.controller.MainController    : The user is allowed access to the home page
+2022-12-28 10:43:31.996  INFO 22468 --- [http-nio-9090-exec-5] c.r.delight.controller.MainController    : The user is allowed access to the home page
+2022-12-28 10:43:33.646  INFO 22468 --- [http-nio-9090-exec-7] c.r.delight.controller.AdminController   : The admin is allowed access to the home page
+2022-12-28 10:43:34.933  INFO 22468 --- [http-nio-9090-exec-6] c.r.delight.controller.AdminController   : The admin is redirected to the forgotten password page
+2022-12-28 10:43:36.117  INFO 22468 --- [http-nio-9090-exec-1] c.r.delight.controller.AdminController   : Intiating Password recovery through the mail service
+2022-12-28 10:43:36.120  INFO 22468 --- [http-nio-9090-exec-1] com.retail.delight.service.SendMailImpl  : Sending the forgotten password to the Employee
+2022-12-28 10:43:39.365  INFO 22468 --- [http-nio-9090-exec-1] c.r.delight.controller.AdminController   : The password for recovery has been succesfully sent to the Employee's email
+2022-12-28 10:44:44.971  INFO 22468 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-28 10:44:45.050  INFO 22468 --- [Thread-13] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-28 10:44:45.051  INFO 22468 --- [Thread-13] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-12-28 10:44:45.353  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 22468 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 10:44:45.354 DEBUG 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 10:44:45.354  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 10:44:45.590  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 10:44:45.595  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2022-12-28 10:44:45.838  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 10:44:45.840  INFO 22468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 10:44:45.840  INFO 22468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 10:44:45.872  INFO 22468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 10:44:45.872  INFO 22468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 514 ms
+2022-12-28 10:44:54.070  INFO 22468 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 10:44:54.227  INFO 22468 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 10:44:54.277  INFO 22468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@326859e3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@136dd19a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e8cfb89, org.springframework.security.web.header.HeaderWriterFilter@3dea17ef, org.springframework.security.web.authentication.logout.LogoutFilter@2b5d7849, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3efcd95d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3ff52e37, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52cd1349, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@50eb9eab, org.springframework.security.web.session.SessionManagementFilter@4e55cd8c, org.springframework.security.web.access.ExceptionTranslationFilter@256c8a8d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a8328d4]
+2022-12-28 10:44:54.343  INFO 22468 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 10:44:54.410  INFO 22468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-28 10:44:54.424  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-12-28 10:44:54.429  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Started RetailDelightApplication in 9.108 seconds (JVM running for 314.336)
+2022-12-28 10:44:54.431  INFO 22468 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-28 10:45:15.392  INFO 22468 --- [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-28 10:45:15.393  INFO 22468 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-28 10:45:15.394  INFO 22468 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-12-28 10:45:15.495  INFO 22468 --- [http-nio-9090-exec-1] c.r.delight.controller.MainController    : The user is allowed access to the home page
+2022-12-28 10:45:16.828  INFO 22468 --- [http-nio-9090-exec-6] c.r.delight.controller.AdminController   : The admin is allowed access to the home page
+2022-12-28 10:45:18.440  INFO 22468 --- [http-nio-9090-exec-10] c.r.delight.controller.AdminController   : The admin is redirected to the forgotten password page
+2022-12-28 10:45:19.627  INFO 22468 --- [http-nio-9090-exec-3] c.r.delight.controller.AdminController   : Intiating Password recovery through the mail service
+2022-12-28 10:45:19.629  INFO 22468 --- [http-nio-9090-exec-3] com.retail.delight.service.SendMailImpl  : Sending the forgotten password to the Employee
+2022-12-28 10:45:22.852  INFO 22468 --- [http-nio-9090-exec-3] c.r.delight.controller.AdminController   : The password for recovery has been succesfully sent to the Employee's email
+2022-12-28 10:45:22.872  WARN 22468 --- [http-nio-9090-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2022-12-28 10:46:17.018  INFO 22468 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-28 10:46:17.096  INFO 22468 --- [Thread-17] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-28 10:46:17.096  INFO 22468 --- [Thread-17] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-12-28 10:46:17.259  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 22468 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 10:46:17.260 DEBUG 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 10:46:17.261  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 10:46:17.483  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 10:46:17.488  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2022-12-28 10:46:17.684  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 10:46:17.685  INFO 22468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 10:46:17.685  INFO 22468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 10:46:17.715  INFO 22468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 10:46:17.715  INFO 22468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 452 ms
+2022-12-28 10:46:25.636  INFO 22468 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 10:46:25.770  INFO 22468 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 10:46:25.825  INFO 22468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c9a4073, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2076e9ad, org.springframework.security.web.context.SecurityContextPersistenceFilter@fe4348d, org.springframework.security.web.header.HeaderWriterFilter@12620a89, org.springframework.security.web.authentication.logout.LogoutFilter@5217f491, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@29bba398, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f21c2ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d95abd0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c23f12, org.springframework.security.web.session.SessionManagementFilter@78dd2411, org.springframework.security.web.access.ExceptionTranslationFilter@79b322cc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@8d5c8f1]
+2022-12-28 10:46:25.875  INFO 22468 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 10:46:25.935  INFO 22468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-28 10:46:25.952  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-12-28 10:46:25.956  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Started RetailDelightApplication in 8.725 seconds (JVM running for 405.862)
+2022-12-28 10:46:25.957  INFO 22468 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-28 10:46:29.431  INFO 22468 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-28 10:46:29.516  INFO 22468 --- [Thread-21] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-28 10:46:29.869  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 22468 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 10:46:29.870 DEBUG 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 10:46:29.870  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 10:46:30.031  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 10:46:30.038  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2022-12-28 10:46:30.141  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 10:46:30.142  INFO 22468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 10:46:30.142  INFO 22468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 10:46:30.169  INFO 22468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 10:46:30.170  INFO 22468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 298 ms
+2022-12-28 10:46:37.826  INFO 22468 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 10:46:37.954  INFO 22468 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 10:46:38.000  INFO 22468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a5e1309, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3714289, org.springframework.security.web.context.SecurityContextPersistenceFilter@18a88e5f, org.springframework.security.web.header.HeaderWriterFilter@1ee193a5, org.springframework.security.web.authentication.logout.LogoutFilter@2e34618c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@d21bc69, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65961e63, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7778d5cf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54cf5a3a, org.springframework.security.web.session.SessionManagementFilter@3af7e704, org.springframework.security.web.access.ExceptionTranslationFilter@7d800869, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5360912c]
+2022-12-28 10:46:38.043  INFO 22468 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 10:46:38.083  INFO 22468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-28 10:46:38.093  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-12-28 10:46:38.096  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Started RetailDelightApplication in 8.252 seconds (JVM running for 418.002)
+2022-12-28 10:46:38.097  INFO 22468 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-28 10:46:39.528  INFO 22468 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-28 10:46:39.607  INFO 22468 --- [Thread-25] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-28 10:46:39.924  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 22468 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 10:46:39.924 DEBUG 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 10:46:39.924  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 10:46:40.073  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 10:46:40.078  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2022-12-28 10:46:40.156  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 10:46:40.157  INFO 22468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 10:46:40.157  INFO 22468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 10:46:40.186  INFO 22468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 10:46:40.186  INFO 22468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 260 ms
+2022-12-28 10:46:47.943  INFO 22468 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-28 10:46:48.071  INFO 22468 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-28 10:46:48.117  INFO 22468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@15478f3e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@548231ac, org.springframework.security.web.context.SecurityContextPersistenceFilter@79019a34, org.springframework.security.web.header.HeaderWriterFilter@25deb18, org.springframework.security.web.authentication.logout.LogoutFilter@707e5e82, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@202af516, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22196879, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f715209, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a81f007, org.springframework.security.web.session.SessionManagementFilter@1d5ae74f, org.springframework.security.web.access.ExceptionTranslationFilter@56f1a653, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@39acee3d]
+2022-12-28 10:46:48.158  INFO 22468 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-28 10:46:48.201  INFO 22468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-28 10:46:48.213  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-12-28 10:46:48.216  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Started RetailDelightApplication in 8.315 seconds (JVM running for 428.122)
+2022-12-28 10:46:48.217  INFO 22468 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-28 10:46:49.661  INFO 22468 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-28 10:46:49.739  INFO 22468 --- [Thread-29] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-28 10:46:50.062  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Starting RetailDelightApplication using Java 1.8.0_121 on VDC01LTC2178 with PID 22468 (D:\Retail-Delight-v6\RetailDelight\target\classes started by Ritesh.Singh in D:\Retail-Delight-v6\RetailDelight)
+2022-12-28 10:46:50.063 DEBUG 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : Running with Spring Boot v2.7.6, Spring v5.3.24
+2022-12-28 10:46:50.063  INFO 22468 --- [restartedMain] c.r.delight.RetailDelightApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-12-28 10:46:50.223  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-28 10:46:50.229  INFO 22468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2022-12-28 10:46:50.409  INFO 22468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-12-28 10:46:50.410  INFO 22468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-28 10:46:50.410  INFO 22468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2022-12-28 10:46:50.436  INFO 22468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-28 10:46:50.436  INFO 22468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 371 ms

@@ -42,7 +42,7 @@ th, td, tr {
 </style>
 </head>
 <body>
-	<th:block th:include="/header3"></th:block>
+	<th:block th:include="header3"></th:block>
 	<div class="header-bar">
 <th:block sec:authorize="isAuthenticated()">
 <div align="left">
@@ -157,7 +157,6 @@ th, td, tr {
 		</th:block>
 	</div>
 
-	<th:block th:include="/_footer"></th:block>
 
 </body>
 </html>

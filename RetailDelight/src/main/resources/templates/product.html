@@ -9,7 +9,7 @@
    </head>
    <body>
    
-      <th:block th:include="/head"></th:block>
+      <th:block th:include="head"></th:block>
      <nav style="color: black;">
 <div class="header-bar">
 <th:block sec:authorize="isAuthenticated()">
@@ -121,7 +121,6 @@
          </table>
       </form>
       
-      <th:block th:include="/_footer"></th:block>
       
    </body>
 </html>

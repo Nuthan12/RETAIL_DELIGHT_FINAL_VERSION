@@ -73,7 +73,7 @@ public class MainController {
    @RequestMapping("/about")
    public String about() {
 	   logger.info("The user is allowed access to the about us page");
-      return "/about";
+      return "about";
    }
 
    @RequestMapping("/403")
