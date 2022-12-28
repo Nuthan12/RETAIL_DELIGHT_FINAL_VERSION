@@ -52,3 +52,6 @@ https://github.com/Nuthan12/Final-Project-Retail-Delight/blob/main/Retail%20Deli
 
 <b>The Sprint Retrospective is available in the following document</b> : 
 https://github.com/Nuthan12/Final-Project-Retail-Delight/blob/main/Retrospective.docx
+
+<b>The Release Notes is available in the following document </b>:
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Release%20Notes.docx
