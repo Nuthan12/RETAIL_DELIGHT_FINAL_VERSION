@@ -45,7 +45,7 @@ Maven
 JIRA
 
 <b>The design, workflow and test cases are available in the following document</b> : 
-https://github.com/Nuthan12/Final-Project-Retail-Delight/blob/main/Retail%20Delight%20Team%203.docx
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Retail%20Delight%20Team%203.docx
 
 <b>The issue tracker of the project is available in the following document</b> : 
 https://github.com/Nuthan12/Final-Project-Retail-Delight/blob/main/Retail%20Delight%20Issue%20Tracker.xlsx
