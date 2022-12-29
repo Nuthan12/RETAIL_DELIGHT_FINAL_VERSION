@@ -57,7 +57,10 @@ https://github.com/Nuthan12/Final-Project-Retail-Delight/blob/main/Retrospective
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Release%20Notes.docx
 
 <b>The Product Backlog Document is available in the following document </b>:
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/ProductBacklog.docx
 
 <b>The Feature Document is available in the following document </b>:
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/FEATURE%20DOCUMENTATION.docx
 
 <b>The Individual Contribution Document is available in the following document </b>:
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Team%20Members%20Individual%20Contribution.docx
