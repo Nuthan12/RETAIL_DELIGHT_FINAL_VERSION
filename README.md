@@ -68,9 +68,11 @@ https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Team%20Memb
 <b> The Jenkins Documentation File is available in the following document </b>:
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Retail%20Delight%20Jenkins%20Document.docx
 
+<b>Team Members Individual Contribution is available in the following document </b>:
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Team%20Members%20Individual%20Contribution.docx
+
 <b>DB Script Document is available in the following document </b>:
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/DB%20script.sql
 
-<b>Normalization Document is available in the following document </b>:
-https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Normalization%20Document.docx
-
+<b>Coding standards is available in the following document </b>
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/CODING_STANDARDS_DOCUMENTATIONTem3.docx
