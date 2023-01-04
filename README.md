@@ -71,3 +71,6 @@ https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Retail%20De
 <b>Team Members Individual Contribution is available in the following document </b>:
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Team%20Members%20Individual%20Contribution.docx
 
+<b>DB Script Document is available in the following document </b>:
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/DB%20script.sql
+
