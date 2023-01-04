@@ -1,5 +1,7 @@
 package com.retail.delight.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -8,6 +10,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,19 +36,37 @@ public class OrderDAO {
 	@Autowired
 	private ProductDAO productDAO;
 
-	private int getMaxOrderNum() {
-		String sql = "Select max(o.orderNum) from " + Order.class.getName() + " o ";
-		Session session = this.sessionFactory.getCurrentSession();
-		Query<Integer> query = session.createQuery(sql, Integer.class);
-		Integer value = (Integer) query.getSingleResult();
-		if (value == null) {
-			return 0;
-		}
-		return value;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	private int getMaxOrderNum() throws Exception {
+
+		return jdbcTemplate.query("select max(order_num) FROM orders", new ResultSetExtractor<Integer>() {
+
+			@Override
+			public Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
+				int maxNum = 0;
+				while (rs.next()) {
+					maxNum = rs.getInt(1);
+				}
+				return maxNum;
+			}
+
+
+		});
+
 	}
 
 	@Transactional(rollbackFor = Exception.class)
-	public void saveOrder(CartInfo cartInfo) {
+	public void saveOrder(CartInfo cartInfo) throws Exception {
 		Session session = this.sessionFactory.getCurrentSession();
 
 		int orderNum = this.getMaxOrderNum() + 1;

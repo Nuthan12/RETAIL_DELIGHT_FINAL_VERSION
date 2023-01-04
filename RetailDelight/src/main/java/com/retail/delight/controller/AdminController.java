@@ -1,7 +1,5 @@
 package com.retail.delight.controller;
 
-import java.util.List;
-
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,14 +21,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.retail.delight.dao.AccountDAO;
-import com.retail.delight.dao.OrderDAO;
-import com.retail.delight.dao.ProductDAO;
 import com.retail.delight.entity.Product;
 import com.retail.delight.form.ProductForm;
-import com.retail.delight.model.OrderDetailInfo;
 import com.retail.delight.model.OrderInfo;
 import com.retail.delight.pagination.PaginationResult;
+import com.retail.delight.service.OrderService;
+import com.retail.delight.service.ProductService;
 import com.retail.delight.service.SendMail;
 import com.retail.delight.validator.ProductFormValidator;
 
@@ -39,22 +35,24 @@ import com.retail.delight.validator.ProductFormValidator;
 public class AdminController {
 
 	@Autowired
-	private OrderDAO orderDAO;
-
-	@Autowired
-	private ProductDAO productDAO;
-
-	@Autowired
 	private ProductFormValidator productFormValidator;
 
 	@Autowired
 	private SendMail sendMail;
 
+	@Autowired
+	private OrderService orderService;
+
+	@Autowired
+	private ProductService productService;
+
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
-	//to trim spaces and pre-processing of any object
+	// to trim spaces and pre-processing of any object
 	@InitBinder
-	public void myInitBinder(WebDataBinder dataBinder) {
+	public void myInitBinder(WebDataBinder dataBinder) {// binds request
+														// parameter to JavaBean
+														// objects
 		Object target = dataBinder.getTarget();
 		if (target == null) {
 			return;
@@ -74,14 +72,14 @@ public class AdminController {
 	}
 
 	@PostMapping("/forgotPassword")
-	public String forgotPassword(Model model){
+	public String forgotPassword(Model model) {
 		logger.info("The admin is redirected to the forgotten password page");
 		return "forgotPassword";
 
 	}
 
 	@GetMapping("/forgotPasswordManager")
-	public String forgotPasswordManager(Model model){
+	public String forgotPasswordManager(Model model) {
 		logger.info("Intiating Password recovery through the mail service");
 		sendMail.sendForgotPasswordToManager("managerrdsm@gmail.com", "Admin", "Password Recovery");
 		logger.info("The password for recovery has been succesfully sent to the Manager's email");
@@ -89,12 +87,12 @@ public class AdminController {
 	}
 
 	@GetMapping("/forgotPasswordEmployee")
-	public String forgotPasswordEmployee(Model model){
+	public String forgotPasswordEmployee(Model model) {
 		logger.info("Intiating Password recovery through the mail service");
 		sendMail.sendForgotPasswordToEmployee("employeerdsm@gmail.com", "Admin", "Password Recovery");
 		logger.info("The password for recovery has been succesfully sent to the Employee's email");
-//		String s = null;
-//      System.out.println(s.length());
+		// String s = null;
+		// System.out.println(s.length());
 		return "forgotPasswordEmployee";
 	}
 
@@ -102,10 +100,12 @@ public class AdminController {
 	public String accountInfo(Model model) {
 		logger.info("Fetching the user details for the admin");
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		/*      System.out.println(userDetails.getPassword());
-      System.out.println(userDetails.getUsername());
-      System.out.println(userDetails.isEnabled());*/
-		logger.debug("The user details for the admin has been fetched, {}",userDetails);
+		/*
+		 * System.out.println(userDetails.getPassword());
+		 * System.out.println(userDetails.getUsername());
+		 * System.out.println(userDetails.isEnabled());
+		 */
+		logger.debug("The user details for the admin has been fetched, {}", userDetails);
 		model.addAttribute("userDetails", userDetails);
 		return "accountInfo";
 	}
@@ -113,17 +113,10 @@ public class AdminController {
 	@RequestMapping(value = { "/admin/orderList" }, method = RequestMethod.GET)
 	public String orderList(Model model, //
 			@RequestParam(value = "page", defaultValue = "1") String pageStr) {
-		int page = 1;
-		try {
-			page = Integer.parseInt(pageStr);
-		} catch (Exception e) {
-		}
-		final int MAX_RESULT = 20;
-		final int MAX_NAVIGATION_PAGE = 10;
 		logger.info("Fetching the order list from the database");
 		PaginationResult<OrderInfo> paginationResult //
-		= orderDAO.listOrderInfo(page, MAX_RESULT, MAX_NAVIGATION_PAGE);
-		logger.debug("The order list has been succesfully fetched with {} orders",paginationResult.getTotalRecords());
+				= orderService.orderListPagination(pageStr);
+		logger.debug("The order list has been succesfully fetched with {} orders", paginationResult.getTotalRecords());
 		model.addAttribute("paginationResult", paginationResult);
 		return "orderList";
 	}
@@ -135,7 +128,7 @@ public class AdminController {
 		ProductForm productForm = null;
 		logger.info("Validating the length of the product code");
 		if (code != null && code.length() > 0) {
-			Product product = productDAO.findProduct(code);			
+			Product product = productService.getProduct(code);
 			logger.info("Validating the product availablity");
 			if (product != null) {
 				logger.debug("The product to be fetched is {} and is available", product.getName());
@@ -160,42 +153,42 @@ public class AdminController {
 			final RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
-			logger.error("The product {} could not be added to the database",productForm.getName());
+			logger.error("The product {} could not be added to the database", productForm.getName());
 			return "product";
 		}
 		try {
-			productDAO.save(productForm);
-			logger.debug("Adding of product {} to the database has been succesfully done",productForm.getName());
+			productService.saveProduct(productForm);
+			logger.debug("Adding of product {} to the database has been succesfully done", productForm.getName());
 		} catch (Exception e) {
 			Throwable rootCause = ExceptionUtils.getRootCause(e);
 			String message = rootCause.getMessage();
 			model.addAttribute("errorMessage", message);
-			logger.error("The product {} could not be added to the database",productForm.getName());
+			logger.error("The product {} could not be added to the database", productForm.getName());
 			// Show product form.
 			return "product";
 		}
 
 		return "redirect:/productListManager";
 	}
-	//Get: to get order details
+
+	// Get: to get order details
 	@RequestMapping(value = { "/admin/order" }, method = RequestMethod.GET)
 	public String orderView(Model model, @RequestParam("orderId") String orderId) {
 		OrderInfo orderInfo = null;
 
 		if (orderId != null) {
-			logger.debug("The order details for the order id {} is available",orderId);
-			orderInfo = this.orderDAO.getOrderInfo(orderId);
+			logger.debug("The order details for the order id {} is available", orderId);
+			orderInfo = this.orderService.orderinfo(orderId);
 		}
+
 		if (orderInfo == null) {
-			logger.error("Fetching the order details from the database for the order id {} not possible",orderId);
+			logger.error("Fetching the order details from the database for the order id {} not possible", orderId);
 			return "redirect:/admin/orderList";
 		}
-		List<OrderDetailInfo> details = this.orderDAO.listOrderDetailInfos(orderId);
-		orderInfo.setDetails(details);
 
 		model.addAttribute("orderInfo", orderInfo);
-		logger.debug("The order details has been fetched from the database for the order id {}",orderId);
-		logger.info("The order details has been succesfully displayed to the admin for the order id {}",orderId);
+		logger.debug("The order details has been fetched from the database for the order id {}", orderId);
+		logger.info("The order details has been succesfully displayed to the admin for the order id {}", orderId);
 		return "order";
 	}
 
