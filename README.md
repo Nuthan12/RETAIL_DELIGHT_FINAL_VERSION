@@ -83,3 +83,7 @@ https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/CODING_STAN
 
 <b>Internal Server URL</b>
 http://localhost:9090
+
+
+<b>User Credentials is available in the following document </b>
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/User%20Credentials.docx
