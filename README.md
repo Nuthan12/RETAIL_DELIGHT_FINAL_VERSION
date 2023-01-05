@@ -22,10 +22,11 @@ Nowadays, in shopping malls we must wait for the billing in a long queue, it acc
 
 <b>Tools and Technologies used</b> :
 
+Spring Hibernate
 
 Spring Security
 
-Spring Hibernate
+
 
 Spring Multipart File
 
