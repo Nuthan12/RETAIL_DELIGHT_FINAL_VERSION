@@ -26,13 +26,11 @@ Spring Hibernate
 
 Spring Security
 
-
-
 Spring Multipart File
 
 Oracle SQL Developer
 
-Tomcat Sever
+Tomcat Sever 8.5 Version
 
 Java
 
