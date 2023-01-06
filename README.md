@@ -64,9 +64,6 @@ https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/00cbcbe02ca6cdf790
 <b>The Feature Document is available in the following document </b>:
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/FEATURE%20DOCUMENTATION.docx
 
-<b>The Individual Contribution Document is available in the following document </b>:
-https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Team%20Members%20Individual%20Contribution.docx
-
 <b> The Jenkins Documentation File is available in the following document </b>:
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Retail%20Delight%20Jenkins%20Document.docx
 
@@ -76,7 +73,7 @@ https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Team%20Memb
 <b>DB Script Document is available in the following document </b>:
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/DB%20script.sql
 
-<b>Coding standards is available in the following document </b>
+<b>Coding standards is available in the following document </b> :
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/CODING_STANDARDS_DOCUMENTATIONTem3.docx
 
 <b>External Server URL</b>
@@ -85,5 +82,8 @@ http://192.168.141.86:8080/RetailDelight/
 <b>Internal Server URL</b>
 http://localhost:9090
 
-<b>User Credentials is available in the following document </b>
+<b>The Tomcat Deployment documentation is available in the following document </b>:
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Tomcat%20Deployment%20Documentation%20-%20Retail%20Delight.docx
+
+<b>User Credentials is available in the following document </b>:
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/User%20Credentials.docx
