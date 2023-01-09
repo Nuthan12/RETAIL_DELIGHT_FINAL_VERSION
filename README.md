@@ -75,7 +75,7 @@ https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/DB%20script
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/CODING_STANDARDS_DOCUMENTATIONTem3.docx
 
 <b>External Server URL</b>
-http://192.168.141.86:8080/RetailDelight/
+http://192.168.141.86:8080/RetailDelight%20(1)/
 
 <b>Internal Server URL</b>
 http://localhost:9090
