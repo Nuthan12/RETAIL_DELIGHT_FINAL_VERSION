@@ -81,7 +81,7 @@ http://192.168.141.86:8080/RetailDelight/
 http://localhost:9090
 
 <b>The Tomcat Deployment documentation is available in the following document </b>:
-https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Tomcat%20Deployment%20Documentation%20-%20Retail%20Delight.docx
+https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/Tomcat%20Deployment%20Documentation%20Updated-%20Retail%20Delight.docx
 
 <b>User Credentials is available in the following document </b>:
 https://github.com/Nuthan12/RETAIL_DELIGHT_FINAL_VERSION/blob/master/User%20Credentials.docx
